@@ -8,9 +8,12 @@ const dayToBirthday = () => {
   console.log(birthdayDate);
   if (birthdayDate === "") {
     document.querySelector("#error").style.display = "block";
+    document.querySelector("#error").textContent = "Дата рождения не выбрана!";
+    result.style.display = "none";
     return;
   } else {
     document.querySelector("#error").style.display = "none";
+    result.style.display = "block";
   }
   const currentDay = new Date();
   // console.log(currentDay);
