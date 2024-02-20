@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Nunito Sans";
+  src: url(../fonts/NunitoSans_Regular.woff2) format("woff2"),
+    url(../fonts/NunitoSans_Regular.woff) format("woff");
+  font-weight: 400;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-family: "Nunito Sans", Arial, sans-serif;
+}
+
 body {
   font-size: 18px;
   color: rgb(169, 128, 182);
@@ -15,12 +29,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 40px;
+  overflow: hidden;
 }
 
 h1 {
-  margin-top: 150px;
   margin-bottom: 0px;
 }
 
@@ -68,7 +83,6 @@ h1 {
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 24px;
-    margin-top: 100px;
   }
   .container {
     padding: 10px;
