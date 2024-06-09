@@ -5,7 +5,6 @@ const result = document.querySelector("#result");
 
 const dayToBirthday = () => {
   const birthdayDate = date.value;
-  console.log(birthdayDate);
   if (birthdayDate === "") {
     document.querySelector("#error").style.display = "block";
     document.querySelector("#error").textContent = "Дата рождения не выбрана!";
@@ -16,11 +15,20 @@ const dayToBirthday = () => {
     result.style.display = "block";
   }
   const currentDay = new Date();
-  // console.log(currentDay);
   const birthday = new Date(birthdayDate);
-  const diffDay = birthday - currentDay;
+  const utc1 = Date.UTC(
+    currentDay.getFullYear(),
+    currentDay.getMonth(),
+    currentDay.getDate()
+  );
+  const utc2 = Date.UTC(
+    birthday.getFullYear(),
+    birthday.getMonth(),
+    birthday.getDate()
+  );
 
-  const day = Math.ceil(diffDay / (1000 * 60 * 60 * 24));
+  const diffTime = utc2 - utc1;
+  const day = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   let dayWord = "дней";
   let leftWord = "До твоего дня рождения осталось";
@@ -43,7 +51,6 @@ const dayToBirthday = () => {
     dayWord = "дня";
   }
   result.textContent = `${leftWord} ${day} ${dayWord}!`;
-  console.log(day);
 };
 
 button.addEventListener("click", dayToBirthday);
